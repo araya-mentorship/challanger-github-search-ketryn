@@ -7,11 +7,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    working-directory: githubapi-frontend
     steps:
       - uses: actions/checkout@v2
       - name: Install Node.js
         uses: actions/setup-node@v1
+        working-directory: githubapi-frontend
         with:
           node-version: 16.13.1
       - run: npm install
