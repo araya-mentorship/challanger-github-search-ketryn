@@ -1,0 +1,22 @@
+name: Code styles, tests and building
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    working-directory: githubapi-frontend
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.13.1
+      - run: npm install
+      - run: npm run lint
+      - run: npm run test --code-coverage=false
+      - run: npm run build
+    env:
+      CI: true
