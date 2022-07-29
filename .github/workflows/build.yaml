@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - develop
+      - ketryn-desafio
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,7 +16,7 @@ jobs:
           node-version: 16.13.1
       - run: cd ./githubapi-frontend && npm install
       - run: cd ./githubapi-frontend && npm run lint
-      - run: cd ./githubapi-frontend && npm run test --code-coverage=false
+      - run: cd ./githubapi-frontend && npm run test
       - run: cd ./githubapi-frontend && npm run build
     env:
       CI: true
