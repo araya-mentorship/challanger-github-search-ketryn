@@ -5,8 +5,6 @@ import { ListarCardsComponent } from './listar-cards/listar-cards.component';
 import { SearchUsersComponent } from './search-users/search-users.component';
 import { HomeComponent } from './page/home/home.component';
 
-
-
 @NgModule({
   declarations: [
     ListarCardsComponent,

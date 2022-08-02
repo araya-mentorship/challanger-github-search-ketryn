@@ -6,7 +6,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  description = 'logo'
 
   @Input() githubIcon = 'assets/git.svg'
 
