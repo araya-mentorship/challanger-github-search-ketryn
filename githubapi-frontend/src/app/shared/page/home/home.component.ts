@@ -7,7 +7,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   description = 'logo'
+
   @Input() githubIcon = 'assets/git.svg'
+  
   @Output() public search = new EventEmitter<void>()
   constructor() { }
 

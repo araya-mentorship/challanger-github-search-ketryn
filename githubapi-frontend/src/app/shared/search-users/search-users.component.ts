@@ -6,6 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./search-users.component.scss']
 })
 export class SearchUsersComponent implements OnInit {
+ 
   @Output() public search = new EventEmitter<void>()
   constructor() { }
 
