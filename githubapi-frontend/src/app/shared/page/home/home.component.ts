@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,13 +6,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  description = 'logo'
 
   @Input() githubIcon = 'assets/git.svg'
 
   @Output() public search = new EventEmitter<void>()
-  constructor() { }
 
-  
+  constructor() { }
 
 }

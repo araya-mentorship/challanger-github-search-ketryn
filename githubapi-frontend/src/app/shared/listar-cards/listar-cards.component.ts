@@ -9,6 +9,4 @@ export class ListarCardsComponent {
 
   constructor() { }
 
-  
-
 }
