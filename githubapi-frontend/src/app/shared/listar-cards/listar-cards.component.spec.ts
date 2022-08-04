@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListarCardsComponent } from './listar-cards.component';
@@ -8,7 +9,8 @@ describe('ListarCardsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListarCardsComponent ]
+      declarations: [ ListarCardsComponent ],
+      imports: [HttpClientModule]
     })
     .compileComponents();
 
