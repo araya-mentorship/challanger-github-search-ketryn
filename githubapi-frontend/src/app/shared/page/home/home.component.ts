@@ -7,9 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class HomeComponent {
 
-  @Input() githubIcon = 'assets/git.svg'
-
-  @Output() public search = new EventEmitter<void>()
+  @Output() public search = new EventEmitter<string>()
 
   constructor() { }
 
