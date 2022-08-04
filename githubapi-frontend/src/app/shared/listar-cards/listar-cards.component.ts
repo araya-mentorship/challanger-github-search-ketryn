@@ -14,13 +14,6 @@ export class ListarCardsComponent implements OnInit {
 
   constructor(private service: ServiceService ) { }
 
-  //  async list(user: string) {
-  //   const profile = document.getElementById("profile");
-  //   const client_id = "Iv1.7dfefc23bd280eef";
-  //   const client_secret = "84c24b16a5faa7a65f1bc8665d091c736942fe53";
-  //   const profileResponse = await fetch(`${url}/${user}?client_id=${client_id}&client_secret${client_secret}`);
-    
-  //   return profile
   ngOnInit() {
     this.service.list().subscribe(dados => this.lista = dados);
   }

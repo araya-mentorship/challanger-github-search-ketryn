@@ -7,9 +7,6 @@ import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/co
 })
 export class SearchUsersComponent {
  
-  @Output() public search = new EventEmitter<void>()
-
-
-
+  @Output() public search = new EventEmitter<string>()
 
 }

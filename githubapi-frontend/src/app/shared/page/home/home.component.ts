@@ -6,12 +6,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
-  @Input() githubIcon = 'assets/git.svg'
-
-  @Output() public search = new EventEmitter<void>()
+  @Output() public search = new EventEmitter<string>()
   constructor() { }
-
-  
-
 }
