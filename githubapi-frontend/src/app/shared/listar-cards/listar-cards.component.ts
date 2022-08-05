@@ -6,7 +6,7 @@ import { ServiceService } from '../service/service.service';
   templateUrl: './listar-cards.component.html',
   styleUrls: ['./listar-cards.component.scss']
 })
-export class ListarCardsComponent implements OnInit {
+export class ListarCardsComponent {
 
   @Input() users: any[] = [];
 
@@ -16,9 +16,6 @@ export class ListarCardsComponent implements OnInit {
 
   constructor(private service: ServiceService ) { }
 
-  ngOnInit() {
-    //  this.service.todas().subscribe(res => this.users === res);
-  }
 
   list() {
     this.service.list()
