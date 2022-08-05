@@ -17,7 +17,7 @@ export class ListarCardsComponent implements OnInit {
   constructor(private service: ServiceService ) { }
 
   ngOnInit() {
-     this.service.todas().subscribe(res => this.users === res);
+    //  this.service.todas().subscribe(res => this.users === res);
   }
 
   list() {
