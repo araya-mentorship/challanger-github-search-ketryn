@@ -12,11 +12,9 @@ export class SearchUsersComponent {
 
   inputValue:string = ""
 
-  constructor(
-    private service: ServiceService,
-    ) {}
+  constructor( private service: ServiceService ) { }
 
-  onkey(event:any) {
+  onkey(event:any): void {
     this.inputValue = event.target.value;
   }
 
