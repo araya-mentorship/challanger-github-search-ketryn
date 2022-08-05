@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ServiceService } from '../service/service.service';
 
 @Component({
   selector: 'app-listar-cards',
@@ -7,6 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarCardsComponent {
 
-  constructor() { }
+  @Input() users: String[] = [];
 
+  lista:string[]= [] ;
+
+  constructor(private service: ServiceService ) { }
+
+
+  list() {
+    this.service.list()
+    .subscribe(
+        (dado) => {
+          this.lista === dado
+        }
+    );
+  }
+
+  getList() {
+    this.service.list().subscribe((data) => {
+      return data
+    })
+  }
 }

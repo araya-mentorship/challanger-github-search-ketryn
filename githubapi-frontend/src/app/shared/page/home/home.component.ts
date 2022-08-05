@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,9 +6,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
   @Output() public search = new EventEmitter<string>()
-
   constructor() { }
-
 }

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ServiceService } from '../service/service.service';
 
 @Component({
   selector: 'app-search-users',
@@ -7,7 +8,22 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class SearchUsersComponent {
  
-  @Output() public search = new EventEmitter<string>()
-  constructor() { }
+  @Output() public search = new EventEmitter()
+
+  inputValue:string = ""
+
+  constructor(
+    private service: ServiceService,
+    ) {}
+
+  onkey(event:any) {
+    this.inputValue = event.target.value;
+  }
+
+  enviar(): void {
+    if (this.inputValue !== null) {
+      this.service.adicionar(this.inputValue);
+    }
+  }
 
 }

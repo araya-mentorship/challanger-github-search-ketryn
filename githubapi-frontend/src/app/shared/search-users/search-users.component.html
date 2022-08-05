@@ -1,4 +1,4 @@
 <div class="col container">
-    <input type="text"  placeholder="Digite o nome do repositório">
-    <button>Pesquisar</button>
+    <input id="search" type="text" (keyup)="onkey($event)" placeholder="Digite o nome do repositório" required />
+    <button (click)="enviar()">Pesquisar</button>
 </div>

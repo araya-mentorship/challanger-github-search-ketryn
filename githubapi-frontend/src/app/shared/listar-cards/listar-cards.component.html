@@ -1,4 +1,10 @@
-<div class="col container"> 
-    <div class="row">
-    </div>
+<div id="profile" class="col container"> 
+  <div class="row">
+    <div class="col-md-4" *ngFor="let user of users" >
+      <div class="card" users="users"  >
+        <img src="" alt=""/>
+        <h4>Usuario: {{user}}</h4>
+      </div>
+    </div>   
+  </div>
 </div>

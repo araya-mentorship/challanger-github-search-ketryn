@@ -11,7 +11,6 @@ import { HomeComponent } from './page/home/home.component';
     SearchUsersComponent,
     HomeComponent
   ],
-    
   imports: [
     CommonModule,
     BrowserModule
