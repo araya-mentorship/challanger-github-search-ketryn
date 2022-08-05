@@ -10,6 +10,7 @@ export class ListarCardsComponent {
 
   @Input() users: String[] = [];
 
+<<<<<<< HEAD
   lista:string[]= [] ;
 
   constructor(private service: ServiceService ) { }
@@ -29,4 +30,6 @@ export class ListarCardsComponent {
       return data
     })
   }
+=======
+>>>>>>> bad6506ffe33ae46233329b61bd57903897d6a96
 }
