@@ -1,8 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-<<<<<<< HEAD
 import { ServiceService } from '../service/service.service';
-=======
->>>>>>> bad6506ffe33ae46233329b61bd57903897d6a96
 
 @Component({
   selector: 'app-search-users',
@@ -11,7 +8,6 @@ import { ServiceService } from '../service/service.service';
 })
 export class SearchUsersComponent {
  
-<<<<<<< HEAD
   @Output() public search = new EventEmitter()
 
   inputValue:string = ""
@@ -30,9 +26,4 @@ export class SearchUsersComponent {
     }
   }
 
-=======
-  @Output() public search = new EventEmitter<string>()
-  constructor() { }
-
->>>>>>> bad6506ffe33ae46233329b61bd57903897d6a96
 }
