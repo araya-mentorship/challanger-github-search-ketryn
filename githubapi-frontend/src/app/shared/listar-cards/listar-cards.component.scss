@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.row {
+    height: 110px;
+    width: 80%;
+    background-color: rgb(224, 221, 221);
+    border: 1px solid black;
+    border-radius: 5px;
+}

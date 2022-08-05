@@ -1,12 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { ListarCardsComponent } from './shared/listar-cards/listar-cards.component';
+import { HomeComponent } from './shared/page/home/home.component';
+import { SearchUsersComponent } from './shared/search-users/search-users.component';
+import { SharedModule } from './shared/shared.module';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [AppComponent],
+      imports: [RouterTestingModule, SharedModule],
+      declarations: [AppComponent, ListarCardsComponent,
+        SearchUsersComponent,
+        HomeComponent],
     }).compileComponents();
   });
 
@@ -22,12 +28,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('githubapi-frontend');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'githubapi-frontend app is running!'
-    );
-  });
 });
