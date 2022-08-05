@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
 import { ServiceService } from '../service/service.service';
 
 @Component({
@@ -12,16 +12,13 @@ export class ListarCardsComponent {
 
   @Input() public search = new EventEmitter<any>()
 
-  lista:string[]= [] ;
-
-  constructor(private service: ServiceService ) { }
-
+  constructor(private service: ServiceService) { }
 
   list() {
     this.service.list()
     .subscribe(
         (dado) => {
-          this.lista === dado
+          this.users === dado
         }
     );
   }
