@@ -8,19 +8,19 @@ import { ServiceService } from '../service/service.service';
 })
 export class ListarCardsComponent {
 
-  @Input() users: any[] = [];
+  @Input() users: string[] = [];
 
-  @Input() public search = new EventEmitter<any>()
+  @Input() public search = new EventEmitter<string>()
 
   constructor(private service: ServiceService) { }
 
   list() {
     this.service.list()
-    .subscribe(
+      .subscribe(
         (dado) => {
           this.users === dado
         }
-    );
+      );
   }
 
   getList() {

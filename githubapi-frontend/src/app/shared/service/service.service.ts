@@ -13,9 +13,9 @@ export class ServiceService {
   private readonly API = `${environment.API}`;
   users = []
 
-  constructor( private http: HttpClient ) { }
+  constructor(private http: HttpClient) { }
 
-  public get(name:string) {
+  public get(name: string) {
     return this.http.get(`${this.API}/${name}`)
   }
 
@@ -30,11 +30,11 @@ export class ServiceService {
     return this.http.get(this.API).pipe(tap())
   }
 
-  adicionar(dado:string): void {
+  adicionar(dado: string): void {
     this.http.get(`${this.API}/${dado}`).subscribe(res => this.users === res)
   }
 
   todas() {
-    this.http.get<User[]>(`${this.API}/${this.adicionar}`).subscribe(res => this.users === res);
+    this.http.get<User[]>(`${this.API}/${this.adicionar}`).subscribe(dado => this.users == dado);
   }
 }
