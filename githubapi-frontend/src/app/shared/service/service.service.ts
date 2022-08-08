@@ -11,7 +11,7 @@ import { User } from '../interface/user.model';
 export class ServiceService {
 
   private readonly API = `${environment.API}`;
-  users = []
+  users = [];
 
   constructor(private http: HttpClient) { }
 
