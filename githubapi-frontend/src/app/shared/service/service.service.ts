@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs';
@@ -11,7 +11,7 @@ import { User } from '../interface/user.model';
 export class ServiceService {
 
   private readonly API = `${environment.API}`;
-  users = [];
+  users!: User;
 
   constructor(private http: HttpClient) { }
 
@@ -25,9 +25,9 @@ export class ServiceService {
   ): Observable<Response> {
     return this.http.post<Response>(`${this.API}/${name}`, body);
   }
-
+  
   list() {
-    return this.http.get(this.API).pipe(tap())
+    return this.http.get<User>(`${this.API}/${this.adicionar}`)
   }
 
   adicionar(dado: string): void {
@@ -35,6 +35,6 @@ export class ServiceService {
   }
 
   todas() {
-    this.http.get<User[]>(`${this.API}/${this.adicionar}`).subscribe(dado => this.users == dado);
+    this.http.get<User>(`${this.API}/${this.adicionar}`).subscribe(dado => this.users = dado);
   }
 }

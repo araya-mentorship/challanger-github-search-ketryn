@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { User } from '../interface/user.model';
 import { ServiceService } from '../service/service.service';
 
 @Component({
@@ -8,24 +9,27 @@ import { ServiceService } from '../service/service.service';
 })
 export class ListarCardsComponent {
 
-  @Input() users: string[] = [];
+  @Input() users: Object = {};
 
   @Input() public search = new EventEmitter<string>()
 
-  constructor(private service: ServiceService) { }
+  constructor(private service: ServiceService) {}
 
   list() {
     this.service.list()
       .subscribe(
-        (dado) => {
-          this.users === dado
+        (user: Object): void => {
+          this.users = user
         }
-      );
+      )
   }
 
-  getList() {
-    this.service.list().subscribe((data) => {
-      return data
-    })
-  }
+  // getList(dado: any) {
+  //    this.users = (dado) => {
+  //     this.search(this.users = dado)
+  //    }
+  //   // console.log('AQUI esta o user', this.users);
+
+
 }
+

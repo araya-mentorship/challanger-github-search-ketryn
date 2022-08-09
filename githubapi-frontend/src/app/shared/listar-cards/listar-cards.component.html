@@ -1,11 +1,12 @@
-<div id="profile" class="col container"> 
+<div id="profile" class="col container">
   <div class="row">
-    <div class="col-md-4" *ngFor="let user of users" >
-      <div class="card" users="users"  >
-        <img src="" alt=""/>
-        <h4 id="destino">Usuario: {{ user }}</h4>
-        <label for="destino">Descrição: {{ user }}</label>
+    <!-- <div class="col-md-4" *ngFor="let user of users"> -->
+    <div class="col-md-4">
+      <div class="card" users="users">
+        <img src="" alt="" />
+        <h4 id="destino" ngClass="list()">Usuario: {{ users.name }}</h4>
+        <label for="destino">Descrição: {{ users.bio }}</label>
       </div>
-    </div>   
+    </div>
   </div>
 </div>

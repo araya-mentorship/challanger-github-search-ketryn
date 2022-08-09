@@ -7,14 +7,14 @@ import { ServiceService } from '../service/service.service';
   styleUrls: ['./search-users.component.scss']
 })
 export class SearchUsersComponent {
- 
+
   @Output() public search = new EventEmitter()
 
-  inputValue:string = ""
+  inputValue: string = ""
 
-  constructor( private service: ServiceService ) { }
+  constructor(private service: ServiceService) { }
 
-  onkey(event:any): void {
+  onkey(event: any): void {
     this.inputValue = event.target.value;
   }
 

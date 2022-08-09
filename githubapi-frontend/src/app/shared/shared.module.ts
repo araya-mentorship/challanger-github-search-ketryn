@@ -10,11 +10,11 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     ListarCardsComponent,
     SearchUsersComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     CommonModule,
-    BrowserModule
+    BrowserModule,
   ],
   exports: [
     ListarCardsComponent,
