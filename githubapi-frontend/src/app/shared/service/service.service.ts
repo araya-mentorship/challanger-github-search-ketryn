@@ -1,9 +1,9 @@
-import { Injectable, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../interface/user.model';
+import { SearchResultUser } from '../interface/search-result-user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,16 +25,16 @@ export class ServiceService {
   ): Observable<Response> {
     return this.http.post<Response>(`${this.API}/${name}`, body);
   }
-  
-  list() {
-    return this.http.get<User>(`${this.API}/${this.adicionar}`)
+
+  list(dado: string) {
+    return this.http.get<SearchResultUser>(`${this.API}users/${dado}`)
   }
 
-  adicionar(dado: string): void {
+  getUser(dado: string): void {
     this.http.get(`${this.API}/${dado}`).subscribe(res => this.users === res)
   }
 
   todas() {
-    this.http.get<User>(`${this.API}/${this.adicionar}`).subscribe(dado => this.users = dado);
+    this.http.get<User>(`${this.API}/${this.getUser}`).subscribe(dado => this.users = dado);
   }
 }

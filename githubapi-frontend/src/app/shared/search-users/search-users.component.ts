@@ -20,7 +20,7 @@ export class SearchUsersComponent {
 
   enviar(): void {
     if (this.inputValue !== null) {
-      this.service.adicionar(this.inputValue);
+      this.service.getUser(this.inputValue);
     }
   }
 

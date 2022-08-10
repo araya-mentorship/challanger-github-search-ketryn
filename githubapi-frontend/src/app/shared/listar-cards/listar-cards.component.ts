@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { SearchResultUser } from '../interface/search-result-user.model';
 import { User } from '../interface/user.model';
 import { ServiceService } from '../service/service.service';
 
@@ -7,28 +8,26 @@ import { ServiceService } from '../service/service.service';
   templateUrl: './listar-cards.component.html',
   styleUrls: ['./listar-cards.component.scss']
 })
-export class ListarCardsComponent {
+export class ListarCardsComponent implements OnInit {
 
-  @Input() users: Object = {};
+  @Input() users: User[] = [];
 
   @Input() public search = new EventEmitter<string>()
 
-  constructor(private service: ServiceService) {}
+  constructor(private service: ServiceService) { }
+
+  ngOnInit(): void {
+    this.list()
+  }
 
   list() {
-    this.service.list()
+    this.service.list('ketrynsdm')
       .subscribe(
-        (user: Object): void => {
-          this.users = user
+        (res: SearchResultUser): void => {
+          this.users = res.items
         }
       )
   }
-
-  // getList(dado: any) {
-  //    this.users = (dado) => {
-  //     this.search(this.users = dado)
-  //    }
-  //   // console.log('AQUI esta o user', this.users);
 
 
 }

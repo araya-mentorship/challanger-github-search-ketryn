@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API: 'https://api.github.com/users'
+  API: 'https://api.github.com/search/'
 };
 
 /*
