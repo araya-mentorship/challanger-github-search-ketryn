@@ -1,11 +1,11 @@
-<div id="profile" class="col container">
+<div id="profile" (search)="listUsers()" class="col container">
   <div class="row">
-    <!-- <div class="col-md-4" *ngFor="let user of users"> -->
-    <div class="col-md-4">
-      <div class="card" users="users">
+    <div class="col-md-4" *ngFor="let user of users">
+      <div class="card" (search)="cardUsers()">
         <img src="" alt="" />
         <h4 id="destino" ngClass="list()">Usuario: {{ users }}</h4>
         <label for="destino">Descrição: {{ users }}</label>
+        <button routerLink="/perfil-usuario"><span>></span></button>
       </div>
     </div>
   </div>

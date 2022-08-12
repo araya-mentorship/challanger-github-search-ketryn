@@ -11,7 +11,7 @@ import { SearchResultUser } from '../interface/search-result-user.model';
 export class ServiceService {
 
   private readonly API = `${environment.API}`;
-  users!: User;
+  users: User[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -27,14 +27,15 @@ export class ServiceService {
   }
 
   list(dado: string) {
-    return this.http.get<SearchResultUser>(`${this.API}users/${dado}`)
+    return this.http.get<SearchResultUser>(`${this.API}searh/users/${dado}`)
   }
 
-  getUser(dado: string): void {
-    this.http.get(`${this.API}/${dado}`).subscribe(res => this.users === res)
+  getUserProfile(dado: string) {
+    return this.http.get<User>(`${this.API}users/${dado}`)
   }
 
-  todas() {
-    this.http.get<User>(`${this.API}/${this.getUser}`).subscribe(dado => this.users = dado);
+  getUser(dado: string): Observable<User[]> {
+    return this.http.get<User[]>(`${this.API}/${dado}`)
   }
+
 }
