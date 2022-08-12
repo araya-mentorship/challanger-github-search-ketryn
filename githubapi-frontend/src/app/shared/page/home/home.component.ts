@@ -8,7 +8,7 @@ import { ServiceService } from '../../service/service.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   @Input() public search = new EventEmitter<string>()
   @Input() public listUser = new EventEmitter<string>()
@@ -18,9 +18,6 @@ export class HomeComponent implements OnInit {
   users: User[] = [];
 
   constructor(private service: ServiceService) { }
-
-  ngOnInit(): void {
-  }
 
   onkey(event: string): void {
     this.inputValue = event;
