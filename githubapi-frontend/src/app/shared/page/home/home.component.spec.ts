@@ -16,5 +16,7 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-
+  it('should create HomeComponent', () => {
+    expect(component).toBeTruthy();
+  });
 });
