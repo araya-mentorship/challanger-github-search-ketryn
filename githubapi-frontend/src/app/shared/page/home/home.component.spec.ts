@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
@@ -10,7 +9,6 @@ describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HomeComponent],
-      imports: [HttpClient]
     })
 
     fixture = TestBed.createComponent(HomeComponent);
@@ -18,7 +16,4 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create HomeComponent', () => {
-    expect(component).toBeTruthy();
-  });
 });
