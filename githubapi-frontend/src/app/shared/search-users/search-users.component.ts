@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ServiceService } from '../service/service.service';
 
 @Component({
@@ -7,23 +8,23 @@ import { ServiceService } from '../service/service.service';
   styleUrls: ['./search-users.component.scss']
 })
 export class SearchUsersComponent {
- 
+
   @Output() public search = new EventEmitter()
 
-  inputValue:string = ""
+  formUser = this.formBuilder.group({
+    name: ['', Validators.required]
+  })
 
-  constructor(
-    private service: ServiceService,
-    ) {}
+  name = new FormControl('');
 
-  onkey(event:any) {
-    this.inputValue = event.target.value;
+  constructor(private formBuilder: FormBuilder) { }
+
+  input(): void {
+    this.name.setValue('');
+    this.search.emit()
   }
 
   enviar(): void {
-    if (this.inputValue !== null) {
-      this.service.adicionar(this.inputValue);
-    }
+    this.search.emit(this.name.value)
   }
-
 }

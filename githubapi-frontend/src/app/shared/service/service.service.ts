@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { User } from '../interface/user.model';
+import { SearchResultUser } from '../interface/search-result-user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +11,11 @@ import { environment } from 'src/environments/environment';
 export class ServiceService {
 
   private readonly API = `${environment.API}`;
-  users = []
+  users: User[] = [];
 
-  constructor(
-    private http: HttpClient,
-    ) { }
+  constructor(private http: HttpClient) { }
 
-  public get(name:string){
+  public get(name: string) {
     return this.http.get(`${this.API}/${name}`)
   }
 
@@ -27,12 +26,16 @@ export class ServiceService {
     return this.http.post<Response>(`${this.API}/${name}`, body);
   }
 
-  list() {
-    return this.http.get(this.API).pipe(tap())
+  list(dado: string) {
+    return this.http.get<SearchResultUser>(`${this.API}searh/users/${dado}`)
   }
 
-  adicionar(dado:string): void{
-    this.http.get(`${this.API}/${dado}`).subscribe(res => this.users === res)
+  getUserProfile(dado: string) {
+    return this.http.get<User>(`${this.API}users/${dado}`)
+  }
+
+  getUser(dado: string): Observable<User[]> {
+    return this.http.get<User[]>(`${this.API}/${dado}`)
   }
 
 }

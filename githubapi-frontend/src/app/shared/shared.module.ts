@@ -4,20 +4,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ListarCardsComponent } from './listar-cards/listar-cards.component';
 import { SearchUsersComponent } from './search-users/search-users.component';
 import { HomeComponent } from './page/home/home.component';
+import { UserProfileComponent } from './page/user-profile/user-profile.component';
+import { ServiceService } from './service/service.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     ListarCardsComponent,
     SearchUsersComponent,
-    HomeComponent
+    HomeComponent,
+    UserProfileComponent,
   ],
   imports: [
     CommonModule,
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   exports: [
     ListarCardsComponent,
     SearchUsersComponent,
-    HomeComponent]
+    HomeComponent,
+    UserProfileComponent
+  ],
+  providers: [ServiceService],
 })
 export class SharedModule { }
