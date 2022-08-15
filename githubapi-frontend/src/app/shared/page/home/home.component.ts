@@ -15,7 +15,7 @@ export class HomeComponent {
 
   inputValue: string = "";
 
-  users: User[] = [];
+  users: User[] | any = [];
 
   constructor(private service: ServiceService) { }
 
@@ -25,8 +25,9 @@ export class HomeComponent {
 
   searchUser(event: string): void {
     if (this.inputValue !== null) {
-      this.service.getUser(this.inputValue)
-        .subscribe(res => this.users = res)
+      this.service.getUserProfile(this.inputValue)
+        .subscribe(res => {
+          this.users.push(res)})
     }
     this.inputValue = event
   }
@@ -41,6 +42,5 @@ export class HomeComponent {
     this.users = event
   }
 
-  cardUsers(event: string) {
-  }
+  
 }

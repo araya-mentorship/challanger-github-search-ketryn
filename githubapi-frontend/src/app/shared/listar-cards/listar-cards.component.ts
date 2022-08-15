@@ -11,19 +11,9 @@ import { ServiceService } from '../service/service.service';
 })
 export class ListarCardsComponent {
 
-  @Output() public listUser = new EventEmitter<string>()
-
-  users: User[] = [];
+  @Input() users: User[] = []
 
   constructor() { }
-
-  listUsers() {
-    this.listUser.emit()
-  }
-
-  cardUsers() {
-    this.listUser.emit()
-  }
 
 }
 

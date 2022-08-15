@@ -21,7 +21,6 @@ export class SearchUsersComponent {
 
   input(): void {
     this.name.setValue('');
-    this.search.emit()
   }
 
   enviar(): void {

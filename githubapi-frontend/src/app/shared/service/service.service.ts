@@ -31,7 +31,7 @@ export class ServiceService {
   }
 
   getUserProfile(dado: string) {
-    return this.http.get<User>(`${this.API}users/${dado}`)
+    return this.http.get<User>(`${this.API}/users/${dado}`)
   }
 
   getUser(dado: string): Observable<User[]> {
