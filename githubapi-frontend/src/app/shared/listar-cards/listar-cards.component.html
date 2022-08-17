@@ -3,8 +3,8 @@
     <div class="col-md-4" *ngFor="let user of userResult">
       <div class="card">
         <img src="" alt="" />
-        <h4 id="destino">Usuario: {{ user.profile.login }}</h4>
-        <label for="destino">Descrição: {{ user.profile.score }}</label>
+        <h4 id="destino">Usuario: {{ user.login }}</h4>
+        <label for="destino">Descrição: {{ user.score }}</label>
         <button routerLink="/perfil-usuario"><span>></span></button>
       </div>
     </div>
