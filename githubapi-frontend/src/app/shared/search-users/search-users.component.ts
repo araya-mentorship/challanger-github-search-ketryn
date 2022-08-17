@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { ServiceService } from '../service/service.service';
 
 @Component({
   selector: 'app-search-users',

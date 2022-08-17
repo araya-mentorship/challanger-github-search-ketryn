@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit } from '@angular/core';
-import { SearchResultUser } from '../../interface/search-result-user.model';
-import { User } from '../../interface/user.model';
+import { UserResult } from '../../interface/user-result.model';
 import { ServiceService } from '../../service/service.service';
 
 @Component({
@@ -15,7 +14,7 @@ export class HomeComponent {
 
   inputValue: string = "";
 
-  users: User[] | any = [];
+  userResult: UserResult[] = [];
 
   constructor(private service: ServiceService) { }
 
@@ -25,9 +24,10 @@ export class HomeComponent {
 
   searchUser(event: string): void {
     if (this.inputValue !== null) {
-      this.service.getUserProfile(this.inputValue)
+      this.service.list(this.inputValue)
         .subscribe(res => {
-          this.users.push(res)})
+          return this.userResult.push(res);
+        })
     }
     this.inputValue = event
   }
@@ -35,12 +35,12 @@ export class HomeComponent {
   list(event: any) {
     this.service.list('')
       .subscribe(
-        (res: SearchResultUser): void => {
-          this.users = res.items
+        (res: UserResult): void => {
+          this.userResult.push(res)
         }
       )
-    this.users = event
+    this.userResult = event
   }
 
-  
+
 }
