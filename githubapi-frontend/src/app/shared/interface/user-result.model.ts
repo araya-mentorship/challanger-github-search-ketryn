@@ -4,4 +4,5 @@ export interface UserResult {
     followers_url: string,
     repos_url: string,
     score: number,
+    items: UserResult[],
 }

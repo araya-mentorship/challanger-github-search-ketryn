@@ -10,7 +10,6 @@ import { User } from '../interface/user.model';
 })
 export class ListarCardsComponent {
 
-  @Input() users: User[] = []
   @Input() userResult: UserResult[] = []
 
   constructor() { }

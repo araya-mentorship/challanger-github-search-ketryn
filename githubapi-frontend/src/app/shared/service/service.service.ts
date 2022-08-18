@@ -12,6 +12,7 @@ import { UserResult } from '../interface/user-result.model';
 export class ServiceService {
 
   private readonly API = `${environment.API}`;
+  private readonly token = `${environment.token}`;
   users: User[] = [];
 
   constructor(private http: HttpClient) { }
@@ -28,10 +29,9 @@ export class ServiceService {
   }
 
   list(dado: string) {
-    // return this.http.get<SearchResultUser>(`${this.API}/search/users?q=${dado}`, {
     return this.http.get<UserResult>(`${this.API}/search/users?q=${dado}`, {
       headers: {
-        'Authorization': `token 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`,
+        'Authorization': `${this.token}`,
         'Content-Type': 'application/json',
         'Accept': 'application/vnd.github+json'
       }

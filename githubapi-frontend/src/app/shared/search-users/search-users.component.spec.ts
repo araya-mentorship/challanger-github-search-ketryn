@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 import { SearchUsersComponent } from './search-users.component';
 
@@ -11,7 +11,7 @@ describe('SearchUsersComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SearchUsersComponent],
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, ReactiveFormsModule],
       providers: [FormBuilder]
     })
       .compileComponents();

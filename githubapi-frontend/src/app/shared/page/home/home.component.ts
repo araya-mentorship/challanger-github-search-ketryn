@@ -18,28 +18,23 @@ export class HomeComponent {
 
   constructor(private service: ServiceService) { }
 
-  onkey(event: string): void {
-    this.inputValue = event;
-  }
-
   searchUser(event: string): void {
-    if (this.inputValue !== null) {
-      this.service.list(this.inputValue)
+    this.inputValue = event
+    if (event !== null) {
+      this.service.list(event)
         .subscribe(res => {
-          return this.userResult.push(res);
+          return this.userResult = res.items;
         })
     }
-    this.inputValue = event
   }
 
   list(event: any) {
     this.service.list('')
       .subscribe(
         (res: UserResult): void => {
-          this.userResult.push(res)
+          this.userResult = res.items
         }
       )
-    this.userResult = event
   }
 
 
