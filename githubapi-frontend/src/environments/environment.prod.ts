@@ -1,5 +1,8 @@
+import * as dotenv from 'dotenv' 
+
+dotenv.config()
 export const environment = {
   production: true,
-  API: "",
-  token: `token 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`
+  API: process.env['API'],
+  token: process.env['TOKEN']
 };

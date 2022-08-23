@@ -1,11 +1,17 @@
+import * as dotenv from 'dotenv';
+import * as path from 'path';
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+dotenv.config({
+  path: path.resolve("..", "..", ".env")
+})
+console.log(path.resolve("..", "..", ".env"))
 export const environment = {
   production: false,
-  API: 'https://api.github.com',
-  token: `token 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`
+  API: process.env['API'],
+  token: process.env['TOKEN']
 };
 
 /*
