@@ -25,7 +25,7 @@ fs.readFile(envFile)
         API: "${process.env["API"]}",
         token: "${process.env["TOKEN"]}",
     };`;
-    fs.writeFile(pathTargetFile, environmentConent).catch(console.error);
+    fs.writeFile(pathTargetFile, environmentConent).catch(error);
   })
   .catch((err) => {
     throw new Error(
