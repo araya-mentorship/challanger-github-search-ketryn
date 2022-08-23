@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": ["lodash"],
+            "allowedCommonJsDependencies": ["lodash", "dotenv", "path"],
             "outputPath": "dist/githubapi-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",

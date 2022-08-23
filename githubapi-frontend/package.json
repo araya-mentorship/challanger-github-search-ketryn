@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "nodemon -r dotenv/config",
-    "start": "ng serve",
+    "loadenv:dev": "node ./tools/loadenv.js",
+    "loadenv:prod": "NODE_ENV=production node ./tools/loadenv.js",
+    "start": "npm run loadenv:dev && ng serve",
     "ng": "ng",
-    "build": "ng build",
+    "build": "npm run loadenv:prod && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --code-coverage=false --watch=false",
     "test:watch": "ng test --watch=true",
