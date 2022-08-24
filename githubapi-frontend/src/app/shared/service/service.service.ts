@@ -29,8 +29,7 @@ export class ServiceService {
   }
 
   list(dado: string) {
-    return this.http.get<UserResult>(`${this.API}/search/users?q=${dado}`, {
-    // return this.http.get<UserResult>(`${this.API}/users/${dado}`, {
+    return this.http.get<SearchResultUser>(`${this.API}/search/users?q=${dado}`, {
       headers: {
         'Authorization': `token ${this.token}`,
         'Content-Type': 'application/json',

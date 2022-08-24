@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { SearchResultUser } from '../../interface/search-result-user.model';
 import { UserResult } from '../../interface/user-result.model';
 import { ServiceService } from '../../service/service.service';
 
@@ -31,8 +32,8 @@ export class HomeComponent {
   list(event: any) {
     this.service.list('')
       .subscribe(
-        (res: UserResult): void => {
-          this.userResult = res.items
+        (res: SearchResultUser): void => {
+          this.userResult = res.items;
         }
       )
   }
