@@ -2,8 +2,7 @@ const fs = require("fs/promises");
 const dotenv = require("dotenv");
 const path = require("path");
 
-const isProduction = process.env["NODE_ENV"] === "production";
-const targetFile = isProduction ? "environment.prod.ts" : "environment.dev.ts";
+const targetFile = "environment.test.ts";
 const pathTargetFile = path.resolve(
   __dirname,
   "..",
@@ -12,15 +11,11 @@ const pathTargetFile = path.resolve(
   targetFile
 );
 
-const envFile = path.resolve(__dirname, "..", ".env");
-
-dotenv.config({
-  path: envFile,
-});
 const environmentConent = `// Arquivo gerado automaticamente pelo script /tools/loadenv.js
 export const environment = {
-    production: ${isProduction},
-    API: "${process.env["API"]}",
-    token: "${process.env["TOKEN"]}",
+    production: false,
+    API: "https://api.test.com/",
+    token: "ZZDSA#@!DSADSADSADASDAS$!#@!#!@%$^%$HD",
 };`;
+
 fs.writeFile(pathTargetFile, environmentConent).catch(console.error);

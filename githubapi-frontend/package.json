@@ -4,14 +4,15 @@
   "scripts": {
     "dev": "nodemon -r dotenv/config",
     "loadenv:dev": "node ./tools/loadenv.js",
+    "loadenv:test": "node ./tools/loadenv-test.js",
     "loadenv:prod": "NODE_ENV=production node ./tools/loadenv.js",
     "start": "npm run loadenv:dev && ng serve",
     "ng": "ng",
     "build": "npm run loadenv:prod && ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test --code-coverage=false --watch=false",
-    "test:watch": "ng test --watch=true",
-    "test:coverage": "ng test --code-coverage=true",
+    "test": "npm run loadenv:test && ng test --code-coverage=false --watch=false",
+    "test:watch": "npm run loadenv:test && ng test --watch=true",
+    "test:coverage": "npm run loadenv:test && ng test --code-coverage=true",
     "lint": "ng lint"
   },
   "private": true,
