@@ -52,7 +52,7 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "include": [
-    "/**/*"
+  "includes": [
+    "./src/*"
   ]
 }
