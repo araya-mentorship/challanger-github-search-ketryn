@@ -52,7 +52,7 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "includes": [
-    "./src/*"
+  "exclude": [
+    "./tools/loadenv.js"
   ]
 }
