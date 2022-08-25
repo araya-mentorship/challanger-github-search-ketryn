@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { SearchResultUser } from '../../interface/search-result-user.model';
-import { User } from '../../interface/user.model';
+import { UserResult } from '../../interface/user-result.model';
 import { ServiceService } from '../../service/service.service';
 
 @Component({
@@ -15,32 +15,26 @@ export class HomeComponent {
 
   inputValue: string = "";
 
-  users: User[] = [];
+  userResult: UserResult[] = [];
 
   constructor(private service: ServiceService) { }
 
-  onkey(event: string): void {
-    this.inputValue = event;
-  }
-
   searchUser(event: string): void {
-    if (this.inputValue !== null) {
-      this.service.getUser(this.inputValue)
-        .subscribe(res => this.users = res)
-    }
     this.inputValue = event
+    if (event !== null) {
+      this.service.list(event)
+        .subscribe(res => {
+          return this.userResult = res.items;
+        })
+    }
   }
 
   list(event: any) {
     this.service.list('')
       .subscribe(
         (res: SearchResultUser): void => {
-          this.users = res.items
+          this.userResult = res.items;
         }
       )
-    this.users = event
-  }
-
-  cardUsers(event: string) {
   }
 }

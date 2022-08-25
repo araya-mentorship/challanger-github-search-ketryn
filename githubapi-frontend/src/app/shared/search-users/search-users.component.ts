@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { ServiceService } from '../service/service.service';
 
 @Component({
   selector: 'app-search-users',
@@ -21,7 +20,6 @@ export class SearchUsersComponent {
 
   input(): void {
     this.name.setValue('');
-    this.search.emit()
   }
 
   enviar(): void {

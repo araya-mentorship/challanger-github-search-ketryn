@@ -1,8 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgModule } from '@angular/core';
-import { SearchResultUser } from '../interface/search-result-user.model';
+import { UserResult } from '../interface/user-result.model';
 import { User } from '../interface/user.model';
-import { ServiceService } from '../service/service.service';
 
 @Component({
   selector: 'app-listar-cards',
@@ -11,19 +10,9 @@ import { ServiceService } from '../service/service.service';
 })
 export class ListarCardsComponent {
 
-  @Output() public listUser = new EventEmitter<string>()
-
-  users: User[] = [];
+  @Input() userResult: UserResult[] = []
 
   constructor() { }
-
-  listUsers() {
-    this.listUser.emit()
-  }
-
-  cardUsers() {
-    this.listUser.emit()
-  }
 
 }
 

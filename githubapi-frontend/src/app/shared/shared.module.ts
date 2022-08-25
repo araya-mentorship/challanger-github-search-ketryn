@@ -7,14 +7,14 @@ import { HomeComponent } from './page/home/home.component';
 import { UserProfileComponent } from './page/user-profile/user-profile.component';
 import { ServiceService } from './service/service.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     ListarCardsComponent,
-    SearchUsersComponent,
     HomeComponent,
     UserProfileComponent,
+    SearchUsersComponent
   ],
   imports: [
     CommonModule,
