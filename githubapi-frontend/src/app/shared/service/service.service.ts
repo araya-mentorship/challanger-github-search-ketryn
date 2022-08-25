@@ -45,6 +45,4 @@ export class ServiceService {
   getUser(dado: string): Observable<User[]> {
     return this.http.get<User[]>(`${this.API}/${dado}`)
   }
-
-
 }
