@@ -30,8 +30,6 @@ export class UserProfileComponent implements OnInit {
       .subscribe(
         (res: User): void => {
           this.dataUser = res
-          console.log(res);
-          
         }
       );
   }
