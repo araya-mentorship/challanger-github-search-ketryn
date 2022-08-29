@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { User } from '../../interface/user.model';
 import { ServiceService } from '../../service/service.service';
 
@@ -9,19 +10,28 @@ import { ServiceService } from '../../service/service.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  dataUsers: User[] = [];
+  dataUser: User | null = null ;
 
-  constructor(private service: ServiceService) { }
+  constructor(
+    private service: ServiceService,
+    private activatedRouter: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
-    this.userProfile()
+    const userLogin = this.activatedRouter.snapshot.paramMap.get("login")
+    if(userLogin) {
+      this.userProfile(userLogin)
+
+    }
   }
 
-  userProfile() {
-    this.service.getUserProfile('')
+  userProfile(userLogin:string) {
+    this.service.getUserProfile(userLogin)
       .subscribe(
         (res: User): void => {
-          this.dataUsers = [res]
+          this.dataUser = res
+          console.log(res);
+          
         }
       );
   }

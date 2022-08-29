@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Injectable, Input} from '@angular/core';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 import { SearchResultUser } from '../../interface/search-result-user.model';
 import { UserResult } from '../../interface/user-result.model';
 import { ServiceService } from '../../service/service.service';
@@ -17,7 +18,10 @@ export class HomeComponent {
 
   userResult: UserResult[] = [];
 
-  constructor(private service: ServiceService) { }
+  constructor(
+    private service: ServiceService,
+    private router: AppRoutingModule,
+    ) { }
 
   searchUser(event: string): void {
     this.inputValue = event
@@ -37,4 +41,8 @@ export class HomeComponent {
         }
       )
   }
+
+  profileUser() {
+  }
+
 }

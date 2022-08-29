@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 12em;
+    font-family: "DM Sans", sans-serif;
+    background: linear-gradient(to top, #9D83EF, #C4BEFC);
+    transition: background 0.3s ease;
+  }

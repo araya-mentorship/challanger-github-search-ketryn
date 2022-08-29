@@ -8,20 +8,24 @@ import { UserProfileComponent } from './page/user-profile/user-profile.component
 import { ServiceService } from './service/service.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UserDescriptionComponent } from './user-description/user-description.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     ListarCardsComponent,
     HomeComponent,
     UserProfileComponent,
-    SearchUsersComponent
+    SearchUsersComponent,
+    UserDescriptionComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   exports: [
     ListarCardsComponent,
