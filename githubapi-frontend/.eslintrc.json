@@ -46,6 +46,9 @@
         "plugin:@angular-eslint/template/recommended"
       ],
       "rules": {
+        "@angular-eslint/no-empty-lifecycle-method": [
+          "error"
+        ]
       }
     }
   ]
