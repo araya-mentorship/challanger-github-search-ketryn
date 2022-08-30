@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
     HomeComponent,
     UserProfileComponent,
     SearchUsersComponent,
-    UserDescriptionComponent
+    UserDescriptionComponent,
   ],
   imports: [
     CommonModule,
@@ -25,14 +25,15 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [
     ListarCardsComponent,
     SearchUsersComponent,
     HomeComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UserDescriptionComponent,
   ],
   providers: [ServiceService],
 })
-export class SharedModule { }
+export class SharedModule {}

@@ -8,24 +8,8 @@ import { ServiceService } from '../../service/service.service';
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss'],
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfileComponent {
   dataUser: User | null = null;
 
-  constructor(
-    private service: ServiceService,
-    private activatedRouter: ActivatedRoute
-  ) {}
-
-  ngOnInit(): void {
-    const userLogin = this.activatedRouter.snapshot.paramMap.get('login');
-    if (userLogin) {
-      this.userProfile(userLogin);
-    }
-  }
-
-  userProfile(userLogin: string) {
-    this.service.getUserProfile(userLogin).subscribe((res: User): void => {
-      this.dataUser = res;
-    });
-  }
+  constructor() {}
 }
