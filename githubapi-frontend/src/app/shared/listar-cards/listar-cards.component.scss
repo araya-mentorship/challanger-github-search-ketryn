@@ -14,3 +14,63 @@
     border: 1px solid black;
     border-radius: 5px;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap");
+
+/* Hiding scrollbar for demo purposes */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 12em;
+  font-family: "DM Sans", sans-serif;
+  background: linear-gradient(to top, #9D83EF, #C4BEFC);
+  transition: background 0.3s ease;
+}
+
+/* Extra Styling */
+.list {
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.list-item {
+  background: #fff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  z-index: 1;
+}
+
+.list-item img {
+  margin-right: 15px;
+  color: #999;
+}
+
+.list-item:nth-child(4n) {
+  border-bottom: none;
+}
+
+/* Base Styling */
+.list {
+  overflow-y: scroll;
+  position: relative;
+  width: 350px;
+  height: 200px;
+}

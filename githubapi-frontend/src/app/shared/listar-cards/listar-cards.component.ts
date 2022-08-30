@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { NgModule } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserResult } from '../interface/user-result.model';
-import { User } from '../interface/user.model';
 
 @Component({
   selector: 'app-listar-cards',
@@ -10,9 +9,13 @@ import { User } from '../interface/user.model';
 })
 export class ListarCardsComponent {
 
-  @Input() userResult: UserResult[] = []
+  @Input() userResult: UserResult[] = [];
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  redirect(login: string) {
+    this.router.navigate([`perfil-usuario/${login}`])
+  }
 
 }
 
