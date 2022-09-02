@@ -6,7 +6,7 @@ export interface User {
   type: string,
   name: string,
   bio: string,
-  public_repos: number,
   followers: number,
-  following: number
+  following: number,
+  public_repos: number;
 }
