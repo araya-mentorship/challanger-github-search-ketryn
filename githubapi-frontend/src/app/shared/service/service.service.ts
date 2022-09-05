@@ -7,18 +7,17 @@ import { SearchResultUser } from '../interface/search-result-user.model';
 import { UserResult } from '../interface/user-result.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServiceService {
-
   private readonly API = environment.API;
   private readonly token = environment.token;
   users: User[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   public get(name: string) {
-    return this.http.get(`${this.API}/${name}`)
+    return this.http.get(`${this.API}/${name}`);
   }
 
   public post<Request, Response>(
@@ -29,20 +28,27 @@ export class ServiceService {
   }
 
   list(dado: string) {
-    return this.http.get<SearchResultUser>(`${this.API}/search/users?q=${dado}`, {
-      headers: {
-        'Authorization': `token ${this.token}`,
-        'Content-Type': 'application/json',
-        'Accept': 'application/vnd.github+json'
+    return this.http.get<SearchResultUser>(
+      `${this.API}/search/users?q=${dado}`,
+      {
+        headers: {
+          Authorization: `token ${this.token}`,
+          'Content-Type': 'application/json',
+          Accept: 'application/vnd.github+json',
+        },
       }
-    })
+    );
   }
 
   getUserProfile(dado: string) {
-    return this.http.get<User>(`${this.API}/users/${dado}`)
+    return this.http.get<User>(`${this.API}/users/${dado}`);
+  }
+
+  getUserDescription(dado: string) {
+    return this.http.get<UserResult>(`${this.API}/users/${dado}`);
   }
 
   getUser(dado: string): Observable<User[]> {
-    return this.http.get<User[]>(`${this.API}/${dado}`)
+    return this.http.get<User[]>(`${this.API}/${dado}`);
   }
 }

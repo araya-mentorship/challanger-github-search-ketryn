@@ -1,6 +1,12 @@
 <div class="col container">
-    <div>
-        <h1>{{ dataUser?.name }}</h1>
+    <div class="card">
+        <div class="details">
+            <img [src]="dataUser?.avatar_url" alt="" url="">
+            <h5>Nome: {{ dataUser?.name }}</h5>
+            <p> {{dataUser?.bio}}</p>
+            <label for="">REPÓSITORIO PUBLICADO {{dataUser?.public_repos}}</label>
+            <label for="">SEGUIDORES {{dataUser?.followers}}</label>
+            <label for="">SEGUINDO {{dataUser?.following}}</label>
+        </div>
     </div>
-
 </div>

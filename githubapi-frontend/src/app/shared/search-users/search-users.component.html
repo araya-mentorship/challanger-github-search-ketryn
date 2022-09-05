@@ -1,6 +1,13 @@
 <form [formGroup]="formUser">
     <div class="col container">
-        <input id="search" type="text" (click)="input()" [formControl]="name" placeholder="Digite o nome do repositório" required />
-        <button (click)="enviar()">Pesquisar</button>
+        <div class="center">
+            <img src="../../../assets/img/logo.svg" alt="">
+            <h1>Explore usuários no GitHub</h1>
+            <div class="input-button">
+                <input id="search" type="text" (click)="input()" [formControl]="name"
+                    placeholder="Digite o nome do repositório" required />
+                <button (click)="enviar()">Pesquisar</button>
+            </div>
+        </div>
     </div>
 </form>

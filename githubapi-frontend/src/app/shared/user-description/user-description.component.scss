@@ -1,5 +1,94 @@
 img {
-    height: 100px;
-    border-radius: 50%;
-    background-color: aqua;
+  width: 261px;
+}
+
+h5 {
+  color: white;
+  text-align: justify;
+  font-size: 22px;
+}
+
+p {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.container {
+  position: relative;
+  top: -24px;
+  left: 350px;
+}
+
+.card {
+  height: 40rem;
+  width: 22rem;
+  transition: 2.3s;
+  background-color: #fff0;
+  border: none;
+  margin-top: -34px;
+}
+
+.card:hover {
+  transform: scale(1.2);
+}
+
+.details {
+  position: absolute;
+  bottom: -148px;
+  margin: 58px;
+  left: 0;
+  border-radius: 20px 20px 20px 20px;
+  overflow: hidden;
+  height: 260px;
+  top: 120px;
+  background: linear-gradient(
+    0deg,
+    (rgba(0, 0, 0, 0.938)) 75.07%,
+    (transparent) 25.93%
+  );
+  transition: 0.3s ease;
+}
+.details:hover {
+  top: 30px;
+  height: 465px;
+  margin-top: 80px;
+}
+
+p {
+  font-size: 12px;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  flex-direction: column;
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 920px) {
+  .card {
+    margin-left: calc(50% - 460px);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .card {
+    margin-left: calc(50% - 520px);
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .card {
+    margin-left: calc(100% - 560px);
+  }
 }

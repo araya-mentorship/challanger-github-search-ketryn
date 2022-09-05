@@ -1,11 +1,14 @@
 <div id="profile" class="col container">
   <div class="row">
-    <div class="col-md-4 list" *ngFor="let user of userResult">
+    <div class="col-md-12 list" *ngFor="let user of userResult">
       <div class="card list-item">
-        <img src="" alt="" />
-        <h4 id="destino">Usuario: {{ user.login }}</h4>
-        <label for="destino">Descrição: {{ user.score }}</label>
-        <button (click)="redirect(user.login)"><span>></span></button>
+        <img [src]="user.avatar_url" alt="" />
+        <div class="usuario">
+          <h4 id="destino">Usuário: {{ user.login }}</h4>
+        </div>
+        <div class="perfil-button">
+          <button (click)="redirect(user.login)"><span>Perfil</span></button>
+        </div>
       </div>
     </div>
   </div>
