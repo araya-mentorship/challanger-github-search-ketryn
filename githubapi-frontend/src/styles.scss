@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  font-family: "DM Sans", sans-serif;
+  background: linear-gradient(to top, #f0f0f5, #c4befc);
+  width: 100vh;
+}
