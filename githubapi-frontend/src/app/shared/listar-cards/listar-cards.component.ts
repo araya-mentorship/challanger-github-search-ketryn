@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserResult } from '../interface/user-result.model';
-import { ServiceService } from '../service/service.service';
 
 @Component({
   selector: 'app-listar-cards',
@@ -11,9 +10,14 @@ import { ServiceService } from '../service/service.service';
 export class ListarCardsComponent {
   @Input() userResult: UserResult[] = [];
 
-  constructor(private router: Router, private service: ServiceService) {}
+  constructor(private router: Router) {}
 
   redirect(login: string) {
-    this.router.navigate([`perfil-usuario/${login}`]);
+    let msg: string;
+    if (login) {
+      this.router.navigate([`perfil-usuario/${login}`]);
+    } else {
+      msg = 'Ocorreu um erro ao realizar a busca do usuário';
+    }
   }
 }

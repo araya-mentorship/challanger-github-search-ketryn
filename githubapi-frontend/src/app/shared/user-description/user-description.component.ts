@@ -27,7 +27,7 @@ export class UserDescriptionComponent implements OnInit {
     }
   }
 
-  userProfile(userLogin: string) {
+  userProfile(userLogin: string): void {
     this.service.getUserProfile(userLogin).subscribe((res: User): void => {
       this.dataUser = res;
     });
