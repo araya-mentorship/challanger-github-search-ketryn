@@ -33,7 +33,7 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('Quando o metodo searchUser for chamado deve realizar a busca do nome do usuario', () => {
+  it('Quando o metodo searchUser for chamado deve realizar a busca do nome do usuario', () => {
     const name = 'Ketryn';
     const resultList: SearchResultUser = {
       total_count: 0,
