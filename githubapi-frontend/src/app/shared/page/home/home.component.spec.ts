@@ -1,5 +1,12 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { of } from 'rxjs';
+import { SearchResultUser } from '../../interface/search-result-user.model';
+import { ListarCardsComponent } from '../../listar-cards/listar-cards.component';
+import { SearchUsersComponent } from '../../search-users/search-users.component';
 
 import { ServiceService } from '../../service/service.service';
 import { HomeComponent } from './home.component';
@@ -11,8 +18,9 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomeComponent],
-      imports: [HttpClientModule],
+      declarations: [HomeComponent, SearchUsersComponent, ListarCardsComponent],
+      imports: [HttpClientModule, RouterTestingModule],
+      providers: [ServiceService, FormBuilder],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomeComponent);
@@ -25,17 +33,20 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Quando o metodo searchUser for chamado deve realizar a busca do nome do usuario', () => {
-    const name = component.inputValue;
+  fit('Quando o metodo searchUser for chamado deve realizar a busca do nome do usuario', () => {
+    const name = 'Ketryn';
+    const resultList: SearchResultUser = {
+      total_count: 0,
+      incomplete_results: false,
+      items: [],
+    };
 
-    spyOn(serviceMock, 'list').and.callThrough();
-    spyOn(component, 'searchUser').and.callThrough();
+    spyOn(serviceMock, 'list').and.returnValue(of(resultList));
 
     component.searchUser(name);
-    serviceMock.list(name);
-
-    expect(component.searchUser).toHaveBeenCalled();
+    expect(component.inputValue).toBe(name);
     expect(serviceMock.list).toHaveBeenCalledWith(name);
+    expect(component.userResult).toBe(resultList.items);
   });
 
   it('Quando o metodo list for chamado deve listar os nomes dos usuario', () => {

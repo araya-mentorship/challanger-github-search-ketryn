@@ -30,10 +30,11 @@ describe('SearchUsersComponent', () => {
   it('Quando metodo enviar for chamado e o nome de pesquisa for diferente null, então ele deve emitir o valor Output search', () => {
     const name = 'ketryn';
 
-    spyOn(component.formUser, 'getRawValue');
+    component.formUser.get('name')?.setValue(name);
+
+    spyOn(component.formUser, 'getRawValue').and.returnValue({ name });
     spyOn(component.search, 'emit');
 
-    component.formUser.get('name')?.setValue(name);
     component.enviar();
 
     expect(component.formUser.valid).toBeTrue();
@@ -41,7 +42,7 @@ describe('SearchUsersComponent', () => {
     expect(component.search.emit).toHaveBeenCalledWith(name);
   });
 
-  fit('Quando metodo enviar for chamado e o nome de pesquisa for diferente igual a null, então ele não deve emitir o valor Output search', () => {
+  it('Quando metodo enviar for chamado e o nome de pesquisa for diferente igual a null, então ele não deve emitir o valor Output search', () => {
     const name = null;
 
     spyOn(component.formUser, 'getRawValue').and.returnValue({ name });
