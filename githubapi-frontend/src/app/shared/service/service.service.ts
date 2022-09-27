@@ -44,10 +44,12 @@ export class ServiceService {
     return this.http.get<User>(`${this.API}/users/${dado}`);
   }
 
+  // TODO: Remover método não utilizado
   getUserDescription(dado: string) {
     return this.http.get<UserResult>(`${this.API}/users/${dado}`);
   }
 
+  // TODO: Remover método não utilizado
   getUser(dado: string): Observable<User[]> {
     return this.http.get<User[]>(`${this.API}/${dado}`);
   }

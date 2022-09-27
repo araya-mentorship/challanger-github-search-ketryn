@@ -4,8 +4,10 @@ import { TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import * as exp from 'constants';
 import { of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { SearchResultUser } from '../interface/search-result-user.model';
 import { UserResult } from '../interface/user-result.model';
+import { User } from '../interface/user.model';
 import { ListarCardsComponent } from '../listar-cards/listar-cards.component';
 import { SearchUsersComponent } from '../search-users/search-users.component';
 
@@ -29,65 +31,101 @@ describe('ServiceService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('Quando o metodo get for chamado de retorna os dados da API', () => {
+  it(`Quando o metodo get for chamado deve
+      executar uma requisição do tipo "GET" 
+      e então retorna os dados da API`, (done) => {
     const name = 'ketryn';
+    const fakeResult = [
+      {
+        name,
+      },
+    ];
+    const urlRequest = `${environment.API}/${name}`;
 
-    spyOn(service, 'get').and.callThrough();
-    service.get(name);
+    httpMock.get = jasmine.createSpy().and.returnValue(of(fakeResult));
 
-    expect(service.get).toHaveBeenCalledWith(name);
+    service.get(name).subscribe((res) => {
+      expect(res).toBe(fakeResult);
+      done();
+    });
+
+    expect(httpMock.get).toHaveBeenCalledWith(urlRequest);
   });
 
   it('Quando o método post for chamado deve mandar a informação dos dados para a API', (done) => {
     const name = 'ketryn';
     const body = { data: null };
     const response = true;
-    const url = 'https://api.github.com';
+    const urlRequest = `${environment.API}/${name}`;
 
-    spyOn(service, 'post').and.returnValue(of(response));
+    httpMock.post = jasmine.createSpy().and.returnValue(of(response));
 
     service.post(name, body).subscribe((result) => {
       expect(result).toBe(response);
+      done();
     });
-    done();
 
-    expect(httpMock.post).toHaveBeenCalledOnceWith(`${url}/${name}`, body);
+    expect(httpMock.post).toHaveBeenCalledOnceWith(urlRequest, body);
   });
 
-  fit('Quando o método list for chamado deve retorna uma lista com nomes do usuários', (done) => {
+  it('Quando o método list for chamado deve retorna uma lista com nomes dos usuários', (done) => {
     const name = 'ketryn';
-    const url = 'https://api.github.com';
+    const urlRequest = `${environment.API}/search/users?q=${name}`;
     const searchResultUser: SearchResultUser = {
       total_count: 1,
       incomplete_results: false,
       items: [],
     };
 
-    spyOn(service, 'list').and.returnValue(of(searchResultUser));
-
-    service.list(`${url}/${name}`).subscribe((result) => {
-      expect(result).toBe(searchResultUser);
-    });
-    done();
-
-    expect(service.list).toHaveBeenCalledOnceWith(`${url}/${name}`);
-  });
-
-  it('Quando o metodo getUserProfile for chamado de retorna os dados do perfil do usuario atraves da API', () => {
-    const name = 'ketryn';
-    const user: UserResult = {
-      login: '',
-      avatar_url: '',
-      followers_url: '',
-      following_url: 0,
-      location: '',
+    const optionsRequest = {
+      headers: {
+        Authorization: `token ${environment.token}`,
+        'Content-Type': 'application/json',
+        Accept: 'application/vnd.github+json',
+      },
     };
 
-    spyOn(service, 'get').and.callThrough();
-    service.getUserDescription(name);
+    httpMock.get = jasmine.createSpy().and.returnValue(of(searchResultUser));
 
-    // expect(service.getUserDescription).toHaveBeenCalledWith(name);
-    expect(service.get).toEqual(user);
-    expect(service.getUserDescription).toBe(name);
+    service.list(name).subscribe((result) => {
+      expect(result).toBe(searchResultUser);
+      done();
+    });
+
+    expect(httpMock.get)
+      .withContext(
+        'Verifica se o método get do HTTP é chamado com a url e as opções corretas'
+      )
+      .toHaveBeenCalledOnceWith(urlRequest, optionsRequest);
+  });
+
+  it('Quando o metodo getUserProfile for chamado deve retorna os dados do perfil do usuario atraves da API', (done) => {
+    // MOCKS|Variaveis
+    const name = 'ketryn';
+    const user: User = {
+      name,
+      login: '',
+      avatar_url: '',
+      bio: '',
+      followers: 0,
+      following: 0,
+      html_url: '',
+      id: 100,
+      public_repos: 0,
+      type: 'user',
+    };
+
+    const urlRequest = `${environment.API}/users/${name}`;
+    httpMock.get = jasmine.createSpy().and.returnValue(of(user));
+
+    // EXECUCAO
+    const result = service.getUserProfile(name);
+
+    // VALIDACAO
+    expect(httpMock.get).toHaveBeenCalledOnceWith(urlRequest);
+    result.subscribe((res) => {
+      expect(res).toBe(user);
+      done();
+    });
   });
 });
