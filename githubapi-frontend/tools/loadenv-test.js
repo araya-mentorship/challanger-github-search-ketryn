@@ -14,7 +14,7 @@ const pathTargetFile = path.resolve(
 const environmentConent = `// Arquivo gerado automaticamente pelo script /tools/loadenv.js
 export const environment = {
     production: false,
-    API: "https://api.test.com/",
+    API: "https://api.github.com",
     token: "ZZDSA#@!DSADSADSADASDAS$!#@!#!@%$^%$HD",
 };`;
 

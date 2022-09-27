@@ -33,6 +33,7 @@
     "https-browserify": "^1.0.0",
     "istanbul-lib-coverage": "^3.2.0",
     "lodash-es": "^4.17.21",
+    "ngx-toastr": "^15.0.0",
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
     "rxjs": "~7.5.0",

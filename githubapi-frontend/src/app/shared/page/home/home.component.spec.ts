@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { link } from 'fs';
 import { of } from 'rxjs';
 import { SearchResultUser } from '../../interface/search-result-user.model';
 import { ListarCardsComponent } from '../../listar-cards/listar-cards.component';
@@ -45,17 +46,30 @@ describe('HomeComponent', () => {
 
     component.searchUser(name);
     expect(component.inputValue).toBe(name);
-    expect(serviceMock.list).toHaveBeenCalledWith(name);
+    expect(serviceMock.list).toHaveBeenCalledOnceWith(name);
     expect(component.userResult).toBe(resultList.items);
   });
 
   it('Quando o metodo list for chamado deve listar os nomes dos usuario', () => {
-    const result = component.userResult;
+    const resultList: SearchResultUser = {
+      total_count: 0,
+      incomplete_results: false,
+      items: [
+        {
+          login: '',
+          avatar_url: '',
+          followers_url: '',
+          following_url: 0,
+          location: '',
+        },
+      ],
+    };
+    spyOn(serviceMock, 'list').and.returnValue(of(resultList));
 
-    spyOn(serviceMock, 'list').and.callThrough();
-    serviceMock.list('ketryn');
+    component.list(resultList);
 
-    expect(serviceMock.list).toHaveBeenCalledWith('ketryn');
-    expect(result).toBeTruthy();
+    expect(resultList.items).toBeTruthy();
+    expect(serviceMock.list).toHaveBeenCalled();
+    expect(component.userResult).toBe(resultList.items);
   });
 });

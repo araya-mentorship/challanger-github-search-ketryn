@@ -16,8 +16,6 @@ export class ListarCardsComponent {
     let msg: string;
     if (login) {
       this.router.navigate([`perfil-usuario/${login}`]);
-    } else {
-      msg = 'Ocorreu um erro ao realizar a busca do usuário';
     }
   }
 }
