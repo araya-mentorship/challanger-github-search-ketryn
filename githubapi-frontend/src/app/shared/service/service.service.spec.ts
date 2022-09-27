@@ -1,14 +1,9 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { FormBuilder } from '@angular/forms';
-import * as exp from 'constants';
 import { of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { SearchResultUser } from '../interface/search-result-user.model';
-import { UserResult } from '../interface/user-result.model';
 import { User } from '../interface/user.model';
-import { ListarCardsComponent } from '../listar-cards/listar-cards.component';
 import { SearchUsersComponent } from '../search-users/search-users.component';
 
 import { ServiceService } from './service.service';
@@ -69,7 +64,7 @@ describe('ServiceService', () => {
   });
 
   it('Quando o método list for chamado deve retorna uma lista com nomes dos usuários', (done) => {
-    const name = 'ketryn';
+    const name: string = 'ketryn';
     const urlRequest = `${environment.API}/search/users?q=${name}`;
     const searchResultUser: SearchResultUser = {
       total_count: 1,
@@ -100,8 +95,7 @@ describe('ServiceService', () => {
   });
 
   it('Quando o metodo getUserProfile for chamado deve retorna os dados do perfil do usuario atraves da API', (done) => {
-    // MOCKS|Variaveis
-    const name = 'ketryn';
+    const name: string = 'ketryn';
     const user: User = {
       name,
       login: '',
@@ -118,10 +112,8 @@ describe('ServiceService', () => {
     const urlRequest = `${environment.API}/users/${name}`;
     httpMock.get = jasmine.createSpy().and.returnValue(of(user));
 
-    // EXECUCAO
     const result = service.getUserProfile(name);
 
-    // VALIDACAO
     expect(httpMock.get).toHaveBeenCalledOnceWith(urlRequest);
     result.subscribe((res) => {
       expect(res).toBe(user);

@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { UserProfileComponent } from '../page/user-profile/user-profile.component';
 import { ServiceService } from '../service/service.service';
-import { of } from 'rxjs';
 
 import { ListarCardsComponent } from './listar-cards.component';
 
@@ -49,7 +48,7 @@ describe('ListarCardsComponent', () => {
   });
 
   it('Deve exibir uma lista de perfil de usuario', () => {
-    const login = 'ketryn';
+    const login: string = 'ketryn';
     routerMock.navigate = jasmine.createSpy();
     spyOn(component, 'redirect').and.callThrough();
     component.redirect(login);

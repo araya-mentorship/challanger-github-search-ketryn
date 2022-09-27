@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input } from '@angular/core';
+
 import { SearchResultUser } from '../../interface/search-result-user.model';
 import { UserResult } from '../../interface/user-result.model';
 import { ServiceService } from '../../service/service.service';

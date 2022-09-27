@@ -28,7 +28,7 @@ describe('SearchUsersComponent', () => {
   });
 
   it('Quando metodo enviar for chamado e o nome de pesquisa for diferente null, então ele deve emitir o valor Output search', () => {
-    const name = 'ketryn';
+    const name: string = 'ketryn';
 
     component.formUser.get('name')?.setValue(name);
 

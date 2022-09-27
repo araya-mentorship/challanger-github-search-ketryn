@@ -1,9 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { link } from 'fs';
 import { of } from 'rxjs';
 import { SearchResultUser } from '../../interface/search-result-user.model';
 import { ListarCardsComponent } from '../../listar-cards/listar-cards.component';
@@ -35,7 +33,7 @@ describe('HomeComponent', () => {
   });
 
   it('Quando o metodo searchUser for chamado deve realizar a busca do nome do usuario', () => {
-    const name = 'Ketryn';
+    const name: string = 'Ketryn';
     const resultList: SearchResultUser = {
       total_count: 0,
       incomplete_results: false,
