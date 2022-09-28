@@ -14,7 +14,6 @@ export class ListarCardsComponent {
   constructor(private router: Router) {}
 
   redirect(login: string) {
-    let msg: string;
     if (login) {
       this.router.navigate([`perfil-usuario/${login}`]);
     }

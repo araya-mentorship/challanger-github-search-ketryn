@@ -52,15 +52,7 @@ describe('HomeComponent', () => {
     const resultList: SearchResultUser = {
       total_count: 0,
       incomplete_results: false,
-      items: [
-        {
-          login: '',
-          avatar_url: '',
-          followers_url: '',
-          following_url: 0,
-          location: '',
-        },
-      ],
+      items: [],
     };
     spyOn(serviceMock, 'list').and.returnValue(of(resultList));
 
@@ -68,6 +60,6 @@ describe('HomeComponent', () => {
 
     expect(resultList.items).toBeTruthy();
     expect(serviceMock.list).toHaveBeenCalled();
-    expect(component.userResult).toBe(resultList.items);
+    expect(component.userResult).toEqual(resultList.items);
   });
 });

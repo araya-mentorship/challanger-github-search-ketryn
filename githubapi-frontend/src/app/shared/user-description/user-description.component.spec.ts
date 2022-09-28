@@ -28,13 +28,11 @@ describe('UserDescriptionComponent', () => {
   it('Quando o metodo userProfile for chamado deve mostra perfil do usuario ', () => {
     const dadoUser: any = component.dataUser;
 
-    spyOn(component, 'userProfile').and.callThrough();
     spyOn(serviceMock, 'getUserProfile').and.callThrough();
 
     component.userProfile(dadoUser);
     serviceMock.getUserProfile(dadoUser);
 
-    expect(component.userProfile).toHaveBeenCalled();
     expect(component.dataUser).toBeNull();
     expect(serviceMock.getUserProfile).toHaveBeenCalledWith(dadoUser);
   });

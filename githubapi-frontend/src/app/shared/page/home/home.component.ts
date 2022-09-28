@@ -30,9 +30,7 @@ export class HomeComponent {
 
   list(event: any) {
     this.service.list('').subscribe((res: SearchResultUser): void => {
-      if (event) {
         this.userResult = res.items;
-      }
     });
   }
 }

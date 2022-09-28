@@ -43,7 +43,7 @@ describe('SearchUsersComponent', () => {
   });
 
   it('Quando metodo enviar for chamado e o nome de pesquisa for diferente igual a null, então ele não deve emitir o valor Output search', () => {
-    const name = null;
+    const name = '';
 
     spyOn(component.formUser, 'getRawValue').and.returnValue({ name });
     spyOn(component.search, 'emit');

@@ -50,10 +50,8 @@ describe('ListarCardsComponent', () => {
   it('Deve exibir uma lista de perfil de usuario', () => {
     const login: string = 'ketryn';
     routerMock.navigate = jasmine.createSpy();
-    spyOn(component, 'redirect').and.callThrough();
     component.redirect(login);
 
     expect(routerMock.navigate).toHaveBeenCalled();
-    expect(component.redirect).toHaveBeenCalled();
   });
 });

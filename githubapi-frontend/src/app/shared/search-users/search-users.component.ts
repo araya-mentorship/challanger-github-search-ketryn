@@ -7,7 +7,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./search-users.component.scss'],
 })
 export class SearchUsersComponent {
-  @Output() public search = new EventEmitter();
+  @Output() public search = new EventEmitter<string>();
 
   formUser = this.formBuilder.group({
     name: ['', Validators.required],
@@ -16,9 +16,9 @@ export class SearchUsersComponent {
   constructor(private formBuilder: FormBuilder) {}
 
   enviar(): void {
-    const { name }: { name: string | null } = this.formUser.getRawValue();
+    const { name } = this.formUser.getRawValue();
     if (this.formUser.valid) {
-      this.search.emit(name);
+      this.search.emit(name || '');
     }
   }
 }
