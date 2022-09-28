@@ -15,7 +15,7 @@ const environmentConent = `// Arquivo gerado automaticamente pelo script /tools/
 export const environment = {
     production: false,
     API: "https://api.github.com",
-    token: "ZZDSA#@!DSADSADSADASDAS$!#@!#!@%$^%$HD",
+    token: "ghp_BkLHnngpbKgnXx8ootTxOZcjlTE5F4OcTj9",
 };`;
 
 fs.writeFile(pathTargetFile, environmentConent).catch(console.error);
