@@ -27,10 +27,4 @@ export class HomeComponent {
       });
     }
   }
-
-  list(event: any) {
-    this.service.list('').subscribe((res: SearchResultUser): void => {
-        this.userResult = res.items;
-    });
-  }
 }

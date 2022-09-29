@@ -47,19 +47,4 @@ describe('HomeComponent', () => {
     expect(serviceMock.list).toHaveBeenCalledOnceWith(name);
     expect(component.userResult).toBe(resultList.items);
   });
-
-  it('Quando o metodo list for chamado deve listar os nomes dos usuario', () => {
-    const resultList: SearchResultUser = {
-      total_count: 0,
-      incomplete_results: false,
-      items: [],
-    };
-    spyOn(serviceMock, 'list').and.returnValue(of(resultList));
-
-    component.list(resultList);
-
-    expect(resultList.items).toBeTruthy();
-    expect(serviceMock.list).toHaveBeenCalled();
-    expect(component.userResult).toEqual(resultList.items);
-  });
 });
