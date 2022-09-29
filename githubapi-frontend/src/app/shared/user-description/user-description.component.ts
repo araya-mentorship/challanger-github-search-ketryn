@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { UserResult } from '../interface/user-result.model';
 import { User } from '../interface/user.model';
 import { ServiceService } from '../service/service.service';
@@ -27,7 +28,7 @@ export class UserDescriptionComponent implements OnInit {
     }
   }
 
-  userProfile(userLogin: string) {
+  userProfile(userLogin: string): void {
     this.service.getUserProfile(userLogin).subscribe((res: User): void => {
       this.dataUser = res;
     });

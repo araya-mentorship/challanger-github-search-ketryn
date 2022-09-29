@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { User } from '../interface/user.model';
 import { SearchResultUser } from '../interface/search-result-user.model';
-import { UserResult } from '../interface/user-result.model';
+
 
 @Injectable({
   providedIn: 'root',
@@ -44,11 +44,4 @@ export class ServiceService {
     return this.http.get<User>(`${this.API}/users/${dado}`);
   }
 
-  getUserDescription(dado: string) {
-    return this.http.get<UserResult>(`${this.API}/users/${dado}`);
-  }
-
-  getUser(dado: string): Observable<User[]> {
-    return this.http.get<User[]>(`${this.API}/${dado}`);
-  }
 }

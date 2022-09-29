@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input } from '@angular/core';
+
 import { SearchResultUser } from '../../interface/search-result-user.model';
 import { UserResult } from '../../interface/user-result.model';
 import { ServiceService } from '../../service/service.service';
@@ -25,11 +26,5 @@ export class HomeComponent {
         return (this.userResult = res.items);
       });
     }
-  }
-
-  list(event: any) {
-    this.service.list('').subscribe((res: SearchResultUser): void => {
-      this.userResult = res.items;
-    });
   }
 }
