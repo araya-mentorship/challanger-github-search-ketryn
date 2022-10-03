@@ -1,27 +1,56 @@
-# GithubapiFrontend
+### Descrição do Projeto GithubapiFrontend
+O sistema realiza a busca do usuário no github, e exibe os dados de perfil do mesmo.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+### Mapa de tecnologia
+| Nome | Documentação | Links dos pacotes |
+| :-: | :-: | :-: |
+| Typescript | https://www.typescriptlang.org/docs/ | https://www.npmjs.com/package/typescript |
+| Angular | https://angular.io/docs | https://www.npmjs.com/package/@angular/cli |
+| Bootstrap | https://getbootstrap.com/docs/5.0/getting-started/introduction/ | https://www.npmjs.com/package/bootstrap |
+| Api Search users | https://docs.github.com/pt/rest/search#search-users |
+| Api Get a user | https://docs.github.com/pt/rest/users/users#get-a-user |
 
-## Development server
+### Como gerar token da api
+No menu do github entre no settings 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<img src="https://i.imgur.com/VO049cp.png"/>
 
-## Code scaffolding
+### E depois em developer settings
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<img src="https://i.imgur.com/yZnccK8.png"/>
 
-## Build
+### Em seguida Personal access tokens
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<img src="https://i.imgur.com/l74BBr8.png"/>
 
-## Running unit tests
+### Tem o botão Generate new token
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<img src="https://i.imgur.com/o1gSBVd.png"/>
 
-## Running end-to-end tests
+### No note de o nome do projeto e o tempo de Expiration do token
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<img src="https://i.imgur.com/KnIkg4c.png"/>
 
-## Further help
+### seleciona a caixa read:user
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<img src="https://i.imgur.com/I3akcTx.png"/>
+
+### E Generate token
+
+<img src="https://i.imgur.com/ikqeILq.png"/>
+
+Sera gerado um token, adicione o token gerado no arquivo environment, foi usado o dotenv.
+
+```
+npm i dotenv
+```
+
+Dotenv é um módulo de dependência zero que carrega variáveis ​​de ambiente de um .envarquivo em 
+process.env. O armazenamento da configuração no ambiente separado do código é baseado na metodologia.
+
+Crie um .env arquivo no projeto passe o token e rota da API:
+
+```
+S3_BUCKET = " YOURS3BUCKET "
+SECRET_KEY = " YOURSECRETKEYGOESHERE "
+```
